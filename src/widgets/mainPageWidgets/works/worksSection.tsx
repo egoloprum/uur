@@ -72,7 +72,7 @@ export const WorksSection = () => {
         )
 
         indexEl.children[0].textContent = `${String(currentIndex).padStart(2, '0')}`
-        indexEl.children[2].textContent = `${String(totalProjectCount).padStart(2, '0')}`
+        indexEl.children[1].textContent = `/ ${String(totalProjectCount).padStart(2, '0')}`
 
         gsap.set(indexEl, {
           y: progress * moveDistanceIndex,
@@ -127,22 +127,21 @@ export const WorksSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-screen p-4 sm:p-6 md:p-10 overflow-hidden bg-white"
+      className="relative w-full h-screen border-b border-black/8 p-4 sm:p-6 md:p-10 overflow-hidden bg-white"
     >
-      <div className="project-index my-4 sm:my-6 md:my-10">
+      <div className="my-4 sm:my-6 md:my-10 hidden md:block">
         <h2
           ref={indexRef}
-          className="font-normal leading-none uppercase will-change-transform text-black"
+          className="font-normal leading-none uppercase will-change-transform text-black tracking-tight md:w-50 lg:w-62 xl:w-75 flex justify-between items-end"
         >
-          <span className="text-8xl mr-4">01</span>
-          <span className="text-4xl">/</span>
-          <span className="text-4xl">10</span>
+          <span className="md:text-[108px] lg:text-[144px] xl:text-[180px]">01</span>
+          <span className="text-4xl">/ 10</span>
         </h2>
       </div>
 
       <div
         ref={imagesContainerRef}
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[35%] py-[25vh] lg:py-[50vh] flex flex-col gap-2 -z-10 will-change-transform md:w-[35%] max-lg:w-[calc(100%-5rem)] max-md:w-[calc(100%-3rem)] max-sm:w-[calc(100%-2rem)]"
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[35%] py-[25vh] lg:py-[50vh] flex flex-col gap-4 -z-10 will-change-transform md:w-[35%] max-lg:w-[calc(100%-5rem)] max-md:w-[calc(100%-3rem)] max-sm:w-[calc(100%-2rem)]"
       >
         {projects.map((project, index) => (
           <section key={index} className="transition-all duration-300 ease will-change-transform">
